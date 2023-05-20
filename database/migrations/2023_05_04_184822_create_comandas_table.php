@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('cognom')->nullable();
             $table->string('email')->nullable();
             $table->integer('telèfon')->nullable();
-            $table->integer('num d\'atendents')->nullable();
+            $table->integer('num_atendents')->nullable();
             $table->unsignedBigInteger('Espais_idEspais');
             $table->date('data_entrada')->nullable();
             $table->date('data_sortida')->nullable();

@@ -9,11 +9,11 @@ class Comanda extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'idComanda';
+    protected $primaryKey = 'id';
 
     public function espai()
     {
-        return $this->belongsTo(Espai::class, 'Espais_idEspais');   
+        return $this->belongsTo(Espai::class, 'Espais_idEspais', 'id');   
     }
 
     public function serveis()   

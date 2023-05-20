@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComandaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,4 +26,16 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+});
+
+Route::resource('comandes', ComandaController::class);
+
+
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/comandes', [ComandaController::class, 'index'])->name('comandes.index');
+    Route::post('/comandes/filter', [ComandaController::class, 'filter'])->name('comandes.filter');
+    Route::get('/comandes/{comande}', [ComandaController::class, 'show'])->name('comandes.show');
+    Route::get('/comandes/create', [ComandaController::class, 'create'])->name('comandes.create');
+    Route::post('/comandes', [ComandaController::class, 'store'])->name('comandes.store');
+    Route::delete('/comandes/{comande}', [ComandaController::class, 'destroy'])->name('comandes.destroy');
 });
