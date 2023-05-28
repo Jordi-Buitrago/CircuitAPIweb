@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('comandas', function (Blueprint $table) {
             $table->id();
-            $table->string('lletra_espai')->nullable();
             $table->string('Nom')->nullable();
             $table->string('cognom')->nullable();
             $table->string('email')->nullable();
@@ -22,6 +21,8 @@ return new class extends Migration
             $table->unsignedBigInteger('Espais_idEspais');
             $table->date('data_entrada')->nullable();
             $table->date('data_sortida')->nullable();
+            $table->time('hora_entrada')->nullable();
+            $table->time('hora_sortida')->nullable();
             $table->string('estat')->nullable();
             $table->foreign('Espais_idEspais')->references('id')->on('Espais')->onDelete('no action')->onUpdate('no action');
             $table->timestamps();

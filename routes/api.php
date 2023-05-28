@@ -28,3 +28,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/comandes/{id}', [ComandaC
 //Show all comandes
 Route::middleware(['auth:sanctum', 'verified'])->get('/comandes', [ComandaControllerApi::class, 'index']);
 
+//create comanda 
+Route::middleware(['auth:sanctum', 'verified'])->post('/comandes/create', [ComandaControllerApi::class, 'create']);
+
+//update comanda
+Route::middleware(['auth:sanctum', 'verified'])->put('/comandes/{id}', [ComandaControllerApi::class, 'update']);
+
+
+
+

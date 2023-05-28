@@ -14,8 +14,8 @@ class ServeiSeeder extends Seeder
      */
     public function run(): void
     {
-        Servei::factory()
-        ->count(10)
-        ->create();
+        for ($i = 0; $i < 10; $i++) {
+            Servei::factory()->create();
+        }
     }
 }

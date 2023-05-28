@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Comanda;
 use App\Models\Espai;
+use App\Models\Servei;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class ComandaController extends Controller
 {
@@ -37,7 +39,6 @@ class ComandaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'lletra_espai' => 'required',
             'cognom' => 'required',
             'email' => 'required',
             'num_atendents' => 'required',
@@ -53,7 +54,6 @@ class ComandaController extends Controller
 
         $comanda = new Comanda();
         $comanda->id = $request->id;
-        $comanda->lletra_espai = $request->lletra_espai;
         $comanda->Nom = $request->nom;
         $comanda->cognom = $request->cognom;
         $comanda->email = $request->email;
@@ -62,55 +62,48 @@ class ComandaController extends Controller
         $comanda->Espais_idEspais = $request->espais_id;
         $comanda->data_entrada = $request->data_entrada;
         $comanda->data_sortida = $request->data_sortida;
+        $comanda->hora_entrada = $request->hora_entrada;
+        $comanda->hora_sortida = $request->hora_sortida;
         $comanda->estat = 'pendent'; // Valor predeterminado para el campo estat
         $comanda->save();
 
-        return redirect()->route('comandes.index');
+        if (Auth::check()) {
+            return redirect()->route('comandes.index');
+        } else {
+            return redirect('/');
+        }
     }
 
     /**
      * Display the specified resource.
      */
     public function show($id)
-{
-    $comanda = Comanda::findOrFail($id);
-    $espais = Espai::all();
+    {
+        $comanda = Comanda::findOrFail($id);
+        $espais = Espai::all();
 
-    return view('comandes.show', compact('comanda', 'espais'));
-}
+        return view('comandes.show', compact('comanda', 'espais',));
+    }
 
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Request $request, Comanda $comanda)
+    public function edit($id)
     {
-        if ($request->user()->tokenCan('update')) {
-            return view('comandes.edit', ['comanda' => $comanda]);
-        }
+        $comanda = Comanda::findOrFail($id);
+        $espais = Espai::all();
+
+        return view('comandes.edit', compact('comanda', 'espais',));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comanda $comanda)
+    public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'lletra_espai' => 'required',
-            'cognom' => 'required',
-            'email' => 'required',
-            'num_atendents' => 'required',
-            'espais_id' => 'required',
-            'data_entrada' => 'required',
-            'data_sortida' => 'required',
-        ]);
 
-
-        return response()->json(['error' => $validator->errors()], 400);
-
-
-        $comanda->id = $request->id;
-        $comanda->lletra_espai = $request->lletra_espai;
+        $comanda = Comanda::findOrFail($id);
         $comanda->Nom = $request->nom;
         $comanda->cognom = $request->cognom;
         $comanda->email = $request->email;
@@ -119,9 +112,10 @@ class ComandaController extends Controller
         $comanda->Espais_idEspais = $request->espais_id;
         $comanda->data_entrada = $request->data_entrada;
         $comanda->data_sortida = $request->data_sortida;
+        $comanda->hora_entrada = $request->hora_entrada;
+        $comanda->hora_sortida = $request->hora_sortida;
         $comanda->estat = $request->estat;
         $comanda->save();
-
         return redirect()->route('comandes.index');
     }
 

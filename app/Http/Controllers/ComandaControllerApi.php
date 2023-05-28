@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Comanda;
+use App\Models\Espai;
 use Illuminate\Support\Facades\Validator;
 
 class ComandaControllerApi extends Controller
@@ -131,6 +132,29 @@ class ComandaControllerApi extends Controller
             $comanda = Comanda::find($id);
             $comanda->delete();
             return response()->json(['success' => 'Comanda eliminada'], 200);
+        } else {
+            return response()->json(['error' => 'No tienes permisos para realizar esta acción'], 403);
+        }
+    }
+
+    public function create (Request $request)
+    {
+        if($request->user()->tokenCan('create'))
+        {
+            $comanda = new Comanda();
+            $comanda->nom = $request->nom;
+            $comanda->cognom = $request->cognom;
+            $comanda->email = $request->email;
+            $comanda->telèfon = $request->telèfon;
+            $comanda->num_atendents = $request->num_atendents;
+            $comanda->Espais_idEspais = $request->espais_id;
+            $comanda->data_entrada = $request->data_entrada;
+            $comanda->data_sortida = $request->data_sortida;
+            $comanda->hora_entrada = $request->hora_entrada;
+            $comanda->hora_sortida = $request->hora_sortida;
+            $comanda->estat = "pendent";
+            $comanda->save();
+            return response()->json(['success' => 'Comanda creada'], 201);
         } else {
             return response()->json(['error' => 'No tienes permisos para realizar esta acción'], 403);
         }
