@@ -23,8 +23,8 @@
                     </div>
 
                     <div class="mb-4">
-                        <label for="telèfon" class="font-bold mb-2 text-red-600">Teléfono</label>
-                        <input name="telèfon" id="telèfon" placeholder="Teléfono" type="text" value="{{ $comanda->telèfon }}" class="form-input rounded-lg w-full">
+                        <label for="telefon" class="font-bold mb-2 text-red-600">Teléfono</label>
+                        <input name="telèfon" id="telefon" placeholder="Teléfono" type="text" value="{{ $comanda->telefon }}" class="form-input rounded-lg w-full">
                     </div>
 
                     <div class="mb-4">

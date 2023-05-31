@@ -14,7 +14,7 @@
                             <h5 class="font-bold">Informació del Client</h5>
                             <p><strong>Nom:</strong> {{ $comanda->Nom }} {{ $comanda->cognom }}</p>
                             <p><strong>Email:</strong> {{ $comanda->email }}</p>
-                            <p><strong>Telèfon:</strong> {{ $comanda->telèfon }}</p>
+                            <p><strong>Telèfon:</strong> {{ $comanda->telefon }}</p>
                             <p><strong>Número d'Atenents:</strong> {{ $comanda->num_atendents }}</p>
                         </div>
                         <div>

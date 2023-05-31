@@ -21,8 +21,8 @@
                     <input name="email" id="email" placeholder="Email" type="email" class="form-input rounded-lg w-full">
                 </div>
                 <div class="mb-4">
-                    <label for="telèfon" class="font-bold mb-2 text-red-600">Telèfon</label>
-                    <input name="telèfon" id="telèfon" placeholder="Telèfon" type="text" class="form-input rounded-lg w-full">
+                    <label for="telefon" class="font-bold mb-2 text-red-600">Telèfon</label>
+                    <input name="telefon" id="telefon" placeholder="Telèfon" type="text" class="form-input rounded-lg w-full">
                 </div>
                 <div class="mb-4">
                     <label for="num_atendents" class="font-bold mb-2 text-red-600">Número d'assistents</label>

@@ -35,7 +35,7 @@ class ComandaControllerApi extends Controller
                 'Nom' => 'required',
                 'Cognom' => 'required',
                 'email' => 'required',
-                'telèfon' => 'required',
+                'telefon' => 'required',
                 'num_atendents' => 'required',
                 'Espais_idEspais' => 'required',
                 'data_entrada' => 'required',
@@ -49,7 +49,7 @@ class ComandaControllerApi extends Controller
             $comanda->Nom = $request->Nom;
             $comanda->cognom = $request->cognom;
             $comanda->email = $request->email;
-            $comanda->telèfon = $request->telèfon;
+            $comanda->telefon = $request->telefon;
             $comanda->num_atendents = $request->num_atendents;
             $comanda->Espais_idEspais = $request->Espais_idEspais;
             $comanda->data_entrada = $request->data_entrada;
@@ -92,7 +92,7 @@ class ComandaControllerApi extends Controller
                 'Nom' => 'required',
                 'Cognom' => 'required',
                 'email' => 'required',
-                'telèfon' => 'required',
+                'telefon' => 'required',
                 'num_atendents' => 'required',
                 'Espais_idEspais' => 'required',
                 'data_entrada' => 'required',
@@ -105,7 +105,7 @@ class ComandaControllerApi extends Controller
             $comanda->Nom = $request->Nom;
             $comanda->Cognom = $request->Cognom;
             $comanda->email = $request->email;
-            $comanda->telèfon = $request->telèfon;
+            $comanda->telefon = $request->telefon;
             $comanda->num_atendents = $request->num_d_atendents;
             $comanda->Espais_idEspais = $request->Espais_idEspais;
             $comanda->data_entrada = $request->data_entrada;
@@ -145,7 +145,7 @@ class ComandaControllerApi extends Controller
             $comanda->nom = $request->nom;
             $comanda->cognom = $request->cognom;
             $comanda->email = $request->email;
-            $comanda->telèfon = $request->telèfon;
+            $comanda->telefon = $request->telefon;
             $comanda->num_atendents = $request->num_atendents;
             $comanda->Espais_idEspais = $request->espais_id;
             $comanda->data_entrada = $request->data_entrada;
@@ -159,4 +159,16 @@ class ComandaControllerApi extends Controller
             return response()->json(['error' => 'No tienes permisos para realizar esta acción'], 403);
         }
     }
+
+    function getComandesByEmail(Request $request, string $email)
+    {
+        if($request->user()->tokenCan('read'))
+        {
+            $comandes = Comanda::where('email', $email)->get();
+            return response()->json($comandes, 200);
+        }
+        return response()->json(['error' => 'Unauthorized'], 401);
+    }
 }
+
+

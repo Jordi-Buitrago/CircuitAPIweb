@@ -34,6 +34,9 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/comandes/create', [Coman
 //update comanda
 Route::middleware(['auth:sanctum', 'verified'])->put('/comandes/{id}', [ComandaControllerApi::class, 'update']);
 
+//get comandes by mail
+Route::middleware(['auth:sanctum', 'verified'])->get('/comandes/email/{email}', [ComandaControllerApi::class, 'getComandesByEmail']);
+
 
 
 

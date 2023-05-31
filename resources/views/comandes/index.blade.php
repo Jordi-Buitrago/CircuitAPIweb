@@ -25,7 +25,7 @@
         <div class="bg-white rounded-lg shadow-lg p-6">
             <h5 class="text-xl font-bold mb-2">{{ $comanda->Nom }} {{ $comanda->cognom }}</h5>
             <p class="mb-2"><strong>Email:</strong> {{ $comanda->email }}</p>
-            <p class="mb-2"><strong>Telèfon:</strong> {{ $comanda->telèfon }}</p>
+            <p class="mb-2"><strong>Telèfon:</strong> {{ $comanda->telefon }}</p>
             <p class="mb-2"><strong>Espai:</strong> {{ $comanda->espai->nom }}</p>
             <p class="mb-2"><strong>Data d'entrada:</strong> {{ $comanda->data_entrada }}</p>
             <p class="mb-2"><strong>Data de sortida:</strong> {{ $comanda->data_sortida }}</p>

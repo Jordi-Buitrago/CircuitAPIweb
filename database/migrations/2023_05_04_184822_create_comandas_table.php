@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Nom')->nullable();
             $table->string('cognom')->nullable();
             $table->string('email')->nullable();
-            $table->integer('telèfon')->nullable();
+            $table->integer('telefon')->nullable();
             $table->integer('num_atendents')->nullable();
             $table->unsignedBigInteger('Espais_idEspais');
             $table->date('data_entrada')->nullable();

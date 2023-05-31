@@ -54,13 +54,8 @@
         </div>
     </div>
 </header>
-
-
-
-
-<body>
-    <div id="slider" class="mx-auto">@yield('slider')</div>
-    <div class="container mx-auto">@yield('content')</div>
-</body>
-
+    <body>
+        <div id="slider" class="mx-auto">@yield('slider')</div>
+        <div class="container mx-auto">@yield('content')</div>
+    </body>
 </html>

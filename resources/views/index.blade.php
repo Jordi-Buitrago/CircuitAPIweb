@@ -45,7 +45,7 @@
 @endsection
 
 @section('content')
-<div class="container mt-6">
+<div class="container mt-6 flex justify-center">
     <div class="flex flex-col items-center justify-center bg-gray-100">
         <div class="w-full max-w-4xl px-6 py-16 mx-auto md:px-12 md:py-24">
             <div class="flex flex-col items-center justify-center mb-16 text-center md:items-center">

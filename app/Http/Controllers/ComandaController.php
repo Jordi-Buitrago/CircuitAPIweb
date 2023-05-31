@@ -29,6 +29,7 @@ class ComandaController extends Controller
     public function create(Request $request)
     {
         $espais = Espai::all(); // Obtener la lista de espacios disponibles
+        $serveis = Servei::all(); // Obtener la lista de servicios disponibles
 
         return view('comandes.create', compact('espais'));
     }
@@ -57,7 +58,7 @@ class ComandaController extends Controller
         $comanda->Nom = $request->nom;
         $comanda->cognom = $request->cognom;
         $comanda->email = $request->email;
-        $comanda->telèfon = $request->telèfon;
+        $comanda->telefon = $request->telefon;
         $comanda->num_atendents = $request->num_atendents;
         $comanda->Espais_idEspais = $request->espais_id;
         $comanda->data_entrada = $request->data_entrada;
@@ -107,7 +108,7 @@ class ComandaController extends Controller
         $comanda->Nom = $request->nom;
         $comanda->cognom = $request->cognom;
         $comanda->email = $request->email;
-        $comanda->telèfon = $request->telèfon;
+        $comanda->telefon = $request->telefon;
         $comanda->num_atendents = $request->num_atendents;
         $comanda->Espais_idEspais = $request->espais_id;
         $comanda->data_entrada = $request->data_entrada;
