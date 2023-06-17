@@ -1,64 +1,48 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# MetropolisFPLab 🏎️
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+This project is a web page created with Laravel, Jetstream and Tailwind for the MetropolisFPLab contest. The goal is to make a web page for the Circuit de Barcelona Catalunya that allows them to manage their reservations through an API. 🏁
 
-## About Laravel
+## Features 🚀
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- User authentication with Jetstream and Fortify. 🔐
+- Responsive design with Tailwind and Livewire. 💅
+- CRUD of reservations with validation and authorization. 📅
+- RESTful API with Laravel Sanctum. 🚪
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Requirements 📋
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- PHP >= 8.0
+- Composer
+- Node.js
+- MySQL
 
-## Learning Laravel
+## Installation 💻
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Clone the repository: `git clone https://github.com/Jordi-Buitrago/CircuitAPIweb.git`
+- Enter the project directory: `cd CircuitAPIweb`
+- Install the Composer dependencies: `composer install`
+- Install the Node.js dependencies: `npm install`
+- Copy the .env.example file and rename it to .env: `cp .env.example .env`
+- Generate the application key: `php artisan key:generate`
+- Configure the environment variables in the .env file, especially those related to the database and the API.
+- Run the migrations and seeders: `php artisan migrate --seed`
+- Run the development server: `php artisan serve`
+- Open the browser and access the address: http://localhost:8000
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Usage 🖱️
 
-## Laravel Sponsors
+- To access the web page, you must create a user account or log in with an existing one. 👤
+- To create a reservation, you must go to the Reservations section and fill out the form with the requested data. ✍️
+- To view, edit or delete a reservation, you must go to the My Reservations section and click on the corresponding option. 🔍
+- To access the API, you must send an HTTP request to the desired endpoint with the authentication token in the Authorization header. The available endpoints are:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+  - GET /api/comandes: returns all reservations of the authenticated user. 📄
+  - POST /api/comandes: creates a new reservation with the data sent in the body of the request. ➕
+  - GET /api/comandes/{id}: returns the reservation with the specified id if it belongs to the authenticated user. 🔎
+  - PUT /api/comandes/{id}: updates the reservation with the specified id if it belongs to the authenticated user with the data sent in the body of the request. ✏️
+  - DELETE /api/comandes/{id}: deletes the reservation with the specified id if it belongs to the authenticated user. ❌
 
-### Premium Partners
+## License 📝
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+This project is under the MIT license. See the LICENSE file for more details.
 
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
