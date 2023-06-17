@@ -10,9 +10,10 @@ class ServeiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $serveis = Servei::all();
+        return view('serveis.index', compact('serveis'));
     }
 
     /**
@@ -28,7 +29,12 @@ class ServeiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $servei = new Servei();
+        $servei->nom = $request->nom;
+        $servei->descripcio = $request->descripcio;
+        $servei->preu = $request->preu;
+        $servei->save();
+        return redirect()->route('serveis.index');
     }
 
     /**

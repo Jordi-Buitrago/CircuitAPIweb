@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Comanda;
 use App\Models\Espai;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 class ComandaControllerApi extends Controller
 {
@@ -42,6 +43,14 @@ class ComandaControllerApi extends Controller
                 'data_sortida' => 'required',
                 'estat' => 'required',
             ]);
+
+            $data_entrada = Carbon::parse($request->data_entrada);
+            $data_sortida = Carbon::parse($request->data_sortida);
+
+            $reservaExistente = Comanda::where('Espais_idEspais', $request->espais_id)
+            ->whereDate('data_entrada', '<=', $data_sortida)
+            ->whereDate('data_sortida', '>=', $data_entrada)
+            ->exists();
             
             $comanda = new Comanda();
             $comanda->id = $request->id;
@@ -59,6 +68,9 @@ class ComandaControllerApi extends Controller
 
             if ($validator->fails()) {
                 return response()->json(['error' => $validator->errors()], 400);
+            }
+            if ($reservaExistente) {
+                return redirect()->back()->withErrors(['error' => 'No es pot fer una reserva per aquesta data.']);
             }
             return response()->json(['success' => 'Comanda creada'], 201);
         } else {

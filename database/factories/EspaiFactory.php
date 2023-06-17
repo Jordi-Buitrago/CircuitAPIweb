@@ -34,7 +34,7 @@ class EspaiFactory extends Factory
 
     return [
         'nom' => $noms[$this->faker->numberBetween(0, 9)],
-        'descripció' => $descripcions[$this->faker->numberBetween(0, 9)],
+        'descripcio' => $descripcions[$this->faker->numberBetween(0, 9)],
         'capacitat' => $capacitats[$this->faker->numberBetween(0, 9)],
         'preu' => $preus[$this->faker->numberBetween(0, 9)],
         'Serveis_idServeis' => $this->faker->numberBetween(1, 10),

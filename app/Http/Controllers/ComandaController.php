@@ -8,6 +8,7 @@ use App\Models\Servei;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class ComandaController extends Controller
 {
@@ -48,9 +49,22 @@ class ComandaController extends Controller
             'data_sortida' => 'required',
         ]);
 
+        $data_entrada = Carbon::parse($request->data_entrada);
+        $data_sortida = Carbon::parse($request->data_sortida);
+
+        // Verificar si hay alguna reserva existente para el mismo día y espacio
+        $reservaExistente = Comanda::where('Espais_idEspais', $request->espais_id)
+            ->whereDate('data_entrada', '<=', $data_sortida)
+            ->whereDate('data_sortida', '>=', $data_entrada)
+            ->exists();
+
+        // Si hay una reserva existente, devuelve una respuesta de error
         if ($validator->fails()) {
-            // Devolver vista con el error
-            return response()->json(['error' => $validator->errors()], 400);
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        
+        if ($reservaExistente) {
+            return redirect()->back()->withErrors(['error' => 'No es pot fer una reserva per aquesta data.']);
         }
 
         $comanda = new Comanda();
@@ -67,13 +81,19 @@ class ComandaController extends Controller
         $comanda->hora_sortida = $request->hora_sortida;
         $comanda->estat = 'pendent'; // Valor predeterminado para el campo estat
         $comanda->save();
-
+        
+        // Almacenar el mensaje en la sesión
+        $request->session()->flash('success', 'La teva sol·licitud de reserva ha estat rebuda. Ens posarem en contacte amb tu ben aviat.');
+        
         if (Auth::check()) {
             return redirect()->route('comandes.index');
         } else {
             return redirect('/');
+            // Almacenar el mensaje en la sesión
+            $request->session()->flash('success', 'La teva sol·licitud de reserva ha estat rebuda. Ens posarem en contacte amb tu ben aviat.');
         }
     }
+
 
     /**
      * Display the specified resource.

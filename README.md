@@ -1,80 +1,64 @@
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-# MetropolisFPLab Project for Circuit de Catalunya 🏎️
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-This project is part of the MetropolisFPLab initiative, a project of innovation promoted by the Metropolitan Agency of Economic Development of the Metropolitan Area of Barcelona, with the aim of evaluating the talent of vocational training students, bringing them closer to the labor market, fostering the acquisition of key competencies and their employability, all through the methodology of open innovation in a real environment.
+## About Laravel
 
-The challenge proposed by Circuit de Catalunya is to create a web application that allows them to manage their reservations of the spaces of the circuit. Circuit de Catalunya is a racetrack located in Montmeló, which hosts the Formula 1 Spanish Grand Prix, the MotoGP Catalan Grand Prix and other international championships .
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-## Technologies used 💻
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-We have used Laravel, a PHP framework, to develop the web application. Laravel is a web framework that provides a robust set of tools and components for building modern web applications. Some of its features are:
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-- MVC architecture
-- Routing system
-- Database abstraction layer
-- Authentication and authorization
-- Blade templating engine
-- Artisan command-line interface
-- Eloquent ORM
-- Testing tools
+## Learning Laravel
 
-## How to install and run 🚀
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-To install and run this project, you need to have PHP, Composer and a database server (MySQL, PostgreSQL, etc.) installed on your system. Then, follow these steps:
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-1. Clone this repository: `git clone https://github.com/Jordi-Buitrago/CircuitAPIweb.git`
-2. Navigate to the project folder: `cd circuit-project`
-3. Install the dependencies: `composer install`
-4. Copy the .env.example file to .env: `cp .env.example .env`
-5. Generate an application key: `php artisan key:generate`
-6. Configure your database credentials in the .env file
-7. Run the migrations and seeders: `php artisan migrate --seed`
-8. Start the local development server: `php artisan serve`
-9. Open your browser and go to http://localhost:8000
+## Laravel Sponsors
 
-## Features and functionalities 🌟
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-The web application allows users to:
+### Premium Partners
 
-- Register and log in with email and password
-- View the available spaces of the circuit and their details
-- Book a space for a specific date and time slot
-- Cancel a booking if needed
-- View their booking history and status
-- Contact the circuit staff for any inquiries or issues
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[Cyber-Duck](https://cyber-duck.co.uk)**
+- **[Many](https://www.many.co.uk)**
+- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
+- **[DevSquad](https://devsquad.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
+- **[OP.GG](https://op.gg)**
+- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
+- **[Lendio](https://lendio.com)**
 
-The web application also has an admin panel that allows staff to:
+## Contributing
 
-- Log in with email and password
-- Manage the spaces of the circuit (add, edit, delete)
-- Manage the bookings of the users (approve, reject, cancel)
-- Manage the users (view, edit, delete)
-- View reports and statistics of the bookings and spaces
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Screenshots 📸
+## Code of Conduct
 
-Here are some screenshots of the web application:
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-![Home page](home.png)
-![Booking page](booking.png)
-![Admin panel](admin.png)
+## Security Vulnerabilities
 
-## Team members 👥
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-This project was developed by:
+## License
 
-- Angel Zamora 
-- Abel Reyes
-- Jordi Buitrago
-
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgements 🙏
-
-We would like to thank:
-
-- The Circuit de Catalunya staff for proposing this challenge and providing us with feedback and support.
-- The MetropolisFPLab organizers for giving us this opportunity and mentoring us throughout the project.
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

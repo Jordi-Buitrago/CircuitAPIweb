@@ -24,7 +24,7 @@
             </div>
             <h2 class="text-xl font-semibold mt-4">Espais</h2>
             <p class="mt-2 text-gray-600">Una aplicació per gestionar i organitzar els espais de manera eficient.</p>
-            <a href="#" class="block mt-4 text-blue-500">Obre l'App Espais</a>
+            <a href="/espais" class="block mt-4 text-blue-500">Obre l'App Espais</a>
         </div>
 
         <!-- Serveis -->
@@ -36,7 +36,7 @@
             </div>
             <h2 class="text-xl font-semibold mt-4">Serveis</h2>
             <p class="mt-2 text-gray-600">Una aplicació per gestionar i oferir serveis de forma eficient.</p>
-            <a href="#" class="block mt-4 text-blue-500">Obre l'App Serveis</a>
+            <a href="/serveis" class="block mt-4 text-blue-500">Obre l'App Serveis</a>
         </div>
     </div>
 </div>

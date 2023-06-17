@@ -12,11 +12,9 @@ class EspaiController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->user()->tokenCan('read'))
-        {
-            return Espai::all();
-            return view('espais.index', ['espais' => Espai::all()]);
-        }
+        $espais = Espai::all();
+        return view('espais.index', compact('espais'));
+
     }
 
     /**
@@ -35,16 +33,16 @@ class EspaiController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->user()->tokenCan('create', 'read'))
-        {
-            $espai = new Espai();
-            $espai->id = $request->id;
-            $espai->nom = $request->nom;
-            $espai->capacitat = $request->capacitat;
-            $espai->tipus = $request->tipus;
-            $espai->save();
-            return redirect()->route('espais.index');
-        }
+        
+        $espai = new Espai();
+        $espai->id = $request->id;
+        $espai->nom = $request->nom;
+        $espai->descripcio = $request->descripcio;
+        $espai->capacitat = $request->capacitat;
+        $espai->preu = $request->preu;
+        $espai->save();
+        return redirect()->route('espais.index');
+        
     }
 
     /**
@@ -52,15 +50,11 @@ class EspaiController extends Controller
      */
     public function show(Request $request, Espai $espai)
     {
-        if($request->user()->tokenCan('read'))
-        {
+    
             return $espai;
             return view('espais.show', ['espai' => $espai]);
-        }
-        else
-        {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
+      
+        
     }
 
     /**
@@ -83,8 +77,9 @@ class EspaiController extends Controller
         {
             $espai->id = $request->id;
             $espai->nom = $request->nom;
+            $espai->descripcio = $request->descripcio;
             $espai->capacitat = $request->capacitat;
-            $espai->tipus = $request->tipus;
+            $espai->preu = $request->preu;
             $espai->save();
             return redirect()->route('espais.index');
         }

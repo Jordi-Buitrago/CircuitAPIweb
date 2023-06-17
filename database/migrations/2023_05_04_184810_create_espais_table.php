@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('espais', function (Blueprint $table) {
             $table->id();
             $table->string('nom')->nullable();
-            $table->longText('descripció')->nullable();
+            $table->longText('descripcio')->nullable();
             $table->float('capacitat')->nullable();
             $table->float('preu')->nullable();
             $table->unsignedBigInteger('Serveis_idServeis');

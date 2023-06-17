@@ -56,6 +56,16 @@
                 </div>
             </div>
         </div>
+        <!-- Mostrar diferents errors -->
+        @if ($errors->any())
+        <div class="text-red-600">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
         <button type="submit" class="bg-white text-red-600 font-bold py-2 px-4 rounded focus:outline-none mt-4">Crear</button>
     </form>
 </div>

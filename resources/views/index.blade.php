@@ -45,6 +45,31 @@
 @endsection
 
 @section('content')
+<!-- Resto del código -->
+
+@if(session('success'))
+    <div class="fixed inset-0 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="text-green-600 mb-4">
+                <svg class="w-6 h-6 inline-block mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {{ session('success') }}
+            </div>
+            <button class="bg-red-500 text-white px-4 py-2 rounded-md focus:outline-none" onclick="closePopup()">Cerrar</button>
+        </div>
+    </div>
+@endif
+
+<!-- Resto del código -->
+
+<script>
+    function closePopup() {
+        window.location.reload();
+    }
+</script>
+
+
 <div class="container mt-6 flex justify-center">
     <div class="flex flex-col items-center justify-center bg-gray-100">
         <div class="w-full max-w-4xl px-6 py-16 mx-auto md:px-12 md:py-24">
